@@ -1,0 +1,13 @@
+server:
+  port: 56020
+
+spring:
+  application:
+    name: service2 #spring名称
+  cloud:
+    nacos:
+      config:
+        server-addr: 49.235.125.139:8848 # 配置中心地址
+        file-extension: yaml # dataId的名称就是application的name加file-extension  service1.yaml
+        namespace: b6cb281f-df22-4f43-9048-ff16ebcdec65 # 命名空间
+        group: TEST_GROUP # 组名

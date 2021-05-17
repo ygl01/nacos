@@ -1,0 +1,32 @@
+server:
+  port: 56010 #端口号
+
+spring:
+  application:
+    name: service1 #spring名称
+  cloud:
+    nacos:
+      config:
+        server-addr: 49.235.125.139:8848 # 配置中心地址
+        file-extension: yaml # dataId的名称就是application的name加file-extension  service1.yaml
+        namespace: b6cb281f-df22-4f43-9048-ff16ebcdec65 # 命名空间
+        group: TEST_GROUP # 组名
+
+        #共享data-id方式
+        #自定义共享data-id，它只认 DEFAULT_GROUP组的配置文件
+#        shared-dataids: ext-config-common01.properties,ext-config-common02.properties,ext-config-common03.properties
+#        refreshable-dataids: ext-config-common01.properties
+
+        #扩展data-id方式   扩展配置
+        #在默认的组 DEFAULT_GROUP，不支持配置的动态刷新
+        ext-config[0]:
+          data-id: ext-config-common01.properties
+        #不在默认的组，不支持动态刷新
+        ext-config[1]:
+          data-id: ext-config-common02.properties
+          group: GLOBALE_GROUP
+        #不在默认的组，支持动态刷新
+        ext-config[2]:
+          data-id: ext-config-common03.properties
+          group: REFRESH_GROUP
+          refresh: true #动态刷新
