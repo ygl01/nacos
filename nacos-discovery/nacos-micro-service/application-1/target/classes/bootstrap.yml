@@ -1,0 +1,21 @@
+server:
+  port: 56020
+  servlet:
+    context-path: /application1 # 根路径
+
+spring:
+  application:
+    name: application1
+  main:
+    allow-bean-definition-overriding: true # 防止bean重复
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 49.235.125.139:8848
+        namespace: b6cb281f-df22-4f43-9048-ff16ebcdec65
+        cluster-name: DEFAULT
+      config:
+        server-addr: 49.235.125.139:8848
+        file-extension: yaml
+        namespace: b6cb281f-df22-4f43-9048-ff16ebcdec65
+        group: NACOS_MICROSERVICE_GROUP

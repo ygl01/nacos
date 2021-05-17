@@ -1,0 +1,36 @@
+server:
+  port: ${port:56030}
+
+spring:
+  application:
+    name: service1
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        cluster-name: DEFAULT
+        server-addr: 49.235.125.139:8848
+        namespace: b6cb281f-df22-4f43-9048-ff16ebcdec65
+      config:
+        server-addr: 49.235.125.139:8848
+        file-extension: yaml
+        namespace: b6cb281f-df22-4f43-9048-ff16ebcdec65
+
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.ygl.microservice
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    # dubbo 协议端口
+    port: ${dubbo_port:20881}
+  registry:
+    address: nacos://49.235.125.139:8848
+  application:
+    # dubbo 运维服务是否开启
+    qos-enable: false
+  consumer:
+    # 启动时是否检查依赖的服务
+    check: false

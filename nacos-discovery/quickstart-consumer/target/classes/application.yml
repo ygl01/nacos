@@ -1,0 +1,12 @@
+server:
+  port: 56020
+
+spring:
+  application:
+    name: quickstart-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 49.235.125.139:8848
+        namespace: b6cb281f-df22-4f43-9048-ff16ebcdec65
+        group: DEFAULT_GROUP1

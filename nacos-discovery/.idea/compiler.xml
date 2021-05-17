@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="service-2-server" />
+        <module name="application-1" />
+        <module name="quickstart-consumer" />
+        <module name="service-1-server" />
+        <module name="service-1-api" />
+        <module name="api-gateway" />
+        <module name="service-2-api" />
+        <module name="quickstart-provider" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
