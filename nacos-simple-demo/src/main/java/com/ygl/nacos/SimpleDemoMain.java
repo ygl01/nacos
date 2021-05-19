@@ -14,6 +14,7 @@ import java.util.concurrent.Executor;
  * @date 2021/4/30 14:50
  */
 public class SimpleDemoMain {
+
     public static void main(String[] args) throws NacosException, InterruptedException {
         //使用nacos client 远程获取nacos服务上的配置信息
         //nacos地址+端口号
@@ -28,7 +29,7 @@ public class SimpleDemoMain {
 
         Properties properties = new Properties();
         properties.put("serverAddr", serverAddr);
-        properties.put("namespace",namespace);
+        properties.put("namespace", namespace);
         //获取配置
         ConfigService configService = NacosFactory.createConfigService(properties);
         //String dataId, String group, long timeoutMs
@@ -39,19 +40,23 @@ public class SimpleDemoMain {
         configService.addListener(dataId, group, new Listener() {
             @Override
             public Executor getExecutor() {
+
                 return null;
             }
+
             //当配置有变化的时候获取通知
             @Override
             public void receiveConfigInfo(String s) {
-                System.out.println("变化啦："+s);
+
+                System.out.println("变化啦：" + s);
             }
         });
 
         //模拟监听（来个死循环）
-        while (true){
+        while (true) {
             //休眠两秒
             Thread.sleep(2000);
         }
     }
+
 }
